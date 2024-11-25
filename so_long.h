@@ -23,6 +23,8 @@
 #define WALL '1'
 #define FLOOR '0'
 
+
+
 #define ESCAPE 65307
 
 //Config azerty
@@ -44,7 +46,6 @@
 #include <X11/keysym.h>
 #include <stdio.h>
 #include <unistd.h>
-
 
 typedef struct s_img
 {
@@ -94,6 +95,9 @@ typedef struct s_game
 	int			win_height;
 }	t_game;
 
+#ifdef BONUS
+void display_movements(t_game *game);
+#endif
 
 int		game_init(t_game *game);
 void	init_game_struct(t_game *game);

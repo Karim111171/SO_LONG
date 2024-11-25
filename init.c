@@ -21,8 +21,6 @@ int	game_init(t_game *game)
 		ft_printf("Error\nMLX initialization failed\n");
 		return (1);
 	}
-	//game->win_width = game->map.columns * TILE_SIZE;
-	//game->win_height = game->map.rows * TILE_SIZE;
 	game->win_ptr = mlx_new_window(game->mlx_ptr, game->map.columns
 			* TILE_SIZE, game->map.rows * TILE_SIZE, "so_long");
 	if (!game->win_ptr)
@@ -132,39 +130,10 @@ int resize_event(void *param)
 
     mlx_clear_window(game->mlx_ptr, game->win_ptr);
     render_map(game);
-    display_movements(game);
+	#ifdef BONUS
+        display_movements(game);
+    #endif
+    
     game->render_again = 1;
     return (0);
-}
-
-void display_movements(t_game *game)
-{
-    char *movement_text;
-
-    // Convertit le nombre de mouvements en chaîne de caractères
-    movement_text = ft_itoa(game->player.movements);
-    if (!movement_text)
-        return;
-
-    // Affiche le texte à une position donnée
-    mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, 0xFFFFFF, "Number of Moves: ");
-    mlx_string_put(game->mlx_ptr, game->win_ptr, 110, 20, 0xFFFFFF, movement_text);
-
-    // Libère la chaîne de caractères générée par ft_itoa
-    free(movement_text);
-}
-int calculate_tile_size(t_game *game)
-{
-    int tile_width = game->win_width / game->map.columns;
-    int tile_height = game->win_height / game->map.rows;
-
-    int new_tile_size = tile_width < tile_height ? tile_width : tile_height;
-
-    // Limiter la taille des tuiles
-    if (new_tile_size < MIN_TILE_SIZE)
-        new_tile_size = MIN_TILE_SIZE;
-    if (new_tile_size > MAX_TILE_SIZE)
-        new_tile_size = MAX_TILE_SIZE;
-
-    return new_tile_size;
 }

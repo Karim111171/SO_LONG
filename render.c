@@ -18,7 +18,9 @@ int render(t_game *game)
     {
         mlx_clear_window(game->mlx_ptr, game->win_ptr);
         render_map(game);
+		#ifdef BONUS
         display_movements(game);
+		#endif
         game->render_again = 0;
     }
     return (0);

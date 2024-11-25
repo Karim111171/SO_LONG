@@ -10,20 +10,27 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	so_long
+NAME = so_long
 
-SRCS	=	main.c init.c checks.c handle.c render.c free.c check_map.c flood_fill.c
+SRCS = main.c init.c checks.c handle.c render.c free.c check_map.c flood_fill.c
+SRCS_BONUS = bonus.c
 
-OBJS	=	$(SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o)
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
-CC	=	cc
-CFLAGS	=	-Wall -Wextra -Werror -g3 -I minilibx-linux  
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -g3 -I minilibx-linux  
+CFLAGS_BONUS = $(CFLAGS) -DBONUS
 
 MLX_LIB = ./minilibx-linux/libmlx.a -lX11 -lXext
 LIBFT_LIB = ./Libft/libft.a
 
-
+# Default build (non-bonus)
 all: $(NAME)
+
+# Bonus build
+bonus: $(OBJS) $(OBJS_BONUS) $(MLX_LIB) $(LIBFT_LIB)
+	$(CC) $(CFLAGS_BONUS) $(OBJS) $(OBJS_BONUS) $(MLX_LIB) $(LIBFT_LIB) -o $(NAME)
 
 $(MLX_LIB):
 	$(MAKE) -C ./minilibx-linux
@@ -31,15 +38,21 @@ $(MLX_LIB):
 $(LIBFT_LIB):
 	$(MAKE) -C ./Libft
 
+# Rule to compile normal .c files into .o files
+$(OBJS): %.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Rule to compile bonus .c files into .o files
+$(OBJS_BONUS): %.o : %.c
+	$(CC) $(CFLAGS_BONUS) -c $< -o $@
+
 $(NAME): $(MLX_LIB) $(LIBFT_LIB) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(MLX_LIB) $(LIBFT_LIB) -o $(NAME)
 
-.o .c:
-	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	$(MAKE) clean -C ./minilibx-linux
 	$(MAKE) clean -C ./Libft
-	rm -f $(OBJS) 
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
@@ -47,5 +60,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
