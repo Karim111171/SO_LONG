@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:24:57 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/11/25 22:11:49 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 22:11:32 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	game_init(t_game *game)
 		return (1);
 	}
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);
-	render_map(game);
+	render(game);
 	mlx_hook (game->win_ptr, KeyPress, KeyPressMask, &ft_key_funct, game);
 	mlx_hook(game->win_ptr, DestroyNotify, StructureNotifyMask,
 		&handle_cross, game);

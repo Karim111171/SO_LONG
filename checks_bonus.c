@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks.c                                           :+:      :+:    :+:   */
+/*   checks_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:24:57 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/11/25 22:06:15 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 22:06:23 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_key_funct(int keycode, t_game *game)
 	else
 	{
 		handle_movement(keycode, game);
-		render_map(game);
+		render(game);
 	}
 	return (0);
 }

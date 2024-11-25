@@ -6,16 +6,16 @@
 #    By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 15:39:53 by kkeirouz          #+#    #+#              #
-#    Updated: 2024/11/25 19:19:53 by kkeirouz         ###   ########.fr        #
+#    Updated: 2024/11/25 22:27:12 by kkeirouz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 NAME_BONUS = so_long_bonus
 
-C_SRCS = main.c init.c checks.c handle.c free.c check_map.c flood_fill.c 
-SRCS = $(C_SRCS) render.c
-SRCS_BONUS = $(C_SRCS) render_bonus.c bonus.c
+C_SRCS = main.c handle.c free.c check_map.c flood_fill.c 
+SRCS = $(C_SRCS) render.c checks.c init.c
+SRCS_BONUS = $(C_SRCS) render_bonus.c bonus_bonus.c checks_bonus.c init_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
@@ -40,11 +40,11 @@ $(MLX_LIB):
 $(LIBFT_LIB):
 	$(MAKE) -C ./Libft
 
-$(OBJS): %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJS_BONUS): %.o : %.c
-	$(CC) $(CFLAGS_BONUS) -c $< -o $@
+#$(OBJS): %.o:%.c
+#	$(CC) $(CFLAGS) -c $< -o $@
+#
+#$(OBJS_BONUS): %.o:%.c
+#	$(CC) $(CFLAGS_BONUS) -c $< -o $@
 
 clean:
 	$(MAKE) clean -C ./minilibx-linux
