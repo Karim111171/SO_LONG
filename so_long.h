@@ -6,16 +6,13 @@
 /*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:09:47 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/11/23 12:39:29 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:18:24 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-#define MIN_TILE_SIZE 16
-#define MAX_TILE_SIZE 64 // Taille maximale
-//#define DEFAULT_TILE_SIZE 32 // Taille initiale
 #define TILE_SIZE 64
 #define EXIT 'E'
 #define PLAYER 'P'
@@ -28,16 +25,16 @@
 #define ESCAPE 65307
 
 //Config azerty
-#define LEFT XK_s
-#define RIGHT XK_d
-#define UP XK_a
-#define DOWN XK_w
+//#define LEFT XK_s
+//#define RIGHT XK_d
+//#define UP XK_a
+//#define DOWN XK_w
 
 //Config qwerty
-// #define DOWN XK_s
-// #define RIGHT XK_d
-// #define LEFT XK_a
-// #define UP XK_w
+#define DOWN XK_s
+#define RIGHT XK_d
+#define LEFT XK_a
+#define UP XK_w
 
 #include "./minilibx-linux/mlx.h"
 #include "./Libft/libft.h"
@@ -125,7 +122,6 @@ int		check_walls_top_bottom(t_game *game);
 int		check_walls_middle(t_game *game);
 int		flood_fill(t_game *flood_game, int x, int y);
 int		flood_fill_master(t_game *game);
-int 	resize_event(void *param);
 void 	display_movements(t_game *game);
 
 #endif

@@ -3,27 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkeirouz <kkeirouz@student..fr>            +#+  +:+       +#+        */
+/*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:17:01 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/11/23 14:20:12 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:59:59 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int render(t_game *game)
+int	render(t_game *game)
 {
-    if (game->win_ptr)
-    {
-        mlx_clear_window(game->mlx_ptr, game->win_ptr);
-        render_map(game);
-		#ifdef BONUS
-        display_movements(game);
-		#endif
-        game->render_again = 0;
-    }
-    return (0);
+	if (game->win_ptr)
+	{
+		mlx_clear_window(game->mlx_ptr, game->win_ptr);
+		render_map(game);
+		game->render_again = 0;
+	}
+	return (0);
 }
 
 int	render_map(t_game *game)

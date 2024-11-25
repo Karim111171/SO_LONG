@@ -6,7 +6,7 @@
 /*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:24:57 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/11/23 14:14:42 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:18:08 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ int	game_init(t_game *game)
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	render_map(game);
 	mlx_loop_hook(game->mlx_ptr, &render, game);
-	mlx_hook(game->win_ptr, Expose, ExposureMask, &render, game);
-	mlx_hook (game->win_ptr, 22, 0, &resize_event, game);
-	//mlx_hook(game->win_ptr, ConfigureNotify, StructureNotifyMask, &resize_event, game);
 	mlx_hook (game->win_ptr, KeyPress, KeyPressMask, &ft_key_funct, game);
 	mlx_hook(game->win_ptr, DestroyNotify, StructureNotifyMask,
 		&handle_cross, game);
@@ -118,22 +115,4 @@ void	init_player_pos(t_game *game)
 		}
 		y++;
 	}
-}
-
-int resize_event(void *param)
-{
-    t_game *game;
-
-    game = (t_game *)param;
-    if (!game || !game->map.map)
-        return (1);
-
-    mlx_clear_window(game->mlx_ptr, game->win_ptr);
-    render_map(game);
-	#ifdef BONUS
-        display_movements(game);
-    #endif
-    
-    game->render_again = 1;
-    return (0);
 }
