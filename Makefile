@@ -6,7 +6,7 @@
 #    By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 15:39:53 by kkeirouz          #+#    #+#              #
-#    Updated: 2024/11/25 22:27:12 by kkeirouz         ###   ########.fr        #
+#    Updated: 2024/11/25 23:39:09 by kkeirouz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,3 +59,5 @@ re: fclean all
 
 .PHONY: all clean fclean re bonus
 
+norminette:
+	norminette $(SRCS) $(SRCS_BONUS) so_long.h so_long_bonus.h ./Libft
