@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:17:01 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/11/25 18:16:36 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:04:50 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	render(t_game *game)
 {
@@ -18,6 +18,7 @@ int	render(t_game *game)
 	{
 		mlx_clear_window(game->mlx_ptr, game->win_ptr);
 		render_map(game);
+		display_movements(game);
 		game->render_again = 0;
 	}
 	return (0);

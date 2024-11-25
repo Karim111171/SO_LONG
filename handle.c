@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkeirouz <kkeirouz@student..fr>            +#+  +:+       +#+        */
+/*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:07:45 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/11/23 14:13:58 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:38:21 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ char	**build_map(char **av, t_game *game)
 
 int	handle_movement(int keycode, t_game *game)
 {
-	if (keycode == UP && movement_possible('U', game) == 0)
+	if (keycode == XK_w && movement_possible('U', game) == 0)
 		game->player.y -= 1;
-	else if (keycode == DOWN && movement_possible('D', game) == 0)
+	else if (keycode == XK_s && movement_possible('D', game) == 0)
 		game->player.y += 1;
-	else if (keycode == RIGHT && movement_possible('R', game) == 0)
+	else if (keycode == XK_d && movement_possible('R', game) == 0)
 		game->player.x += 1;
-	else if (keycode == LEFT && movement_possible('L', game) == 0)
+	else if (keycode == XK_a && movement_possible('L', game) == 0)
 		game->player.x -= 1;
 	handle_move_tile(game);
 	game->render_again = 1;

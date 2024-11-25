@@ -6,7 +6,7 @@
 /*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 11:53:18 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/06/17 16:36:30 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:47:15 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	*ft_itoa(int n)
 {
 	size_t	len;
 	char	*str;
-//	int		sign;
 	long	num;
 
 	num = (long)n;
@@ -45,7 +44,6 @@ char	*ft_itoa(int n)
 	if (num < 0)
 	{
 		num = -num;
-//		sign = -1;
 		str[0] = '-';
 	}
 	while (num)

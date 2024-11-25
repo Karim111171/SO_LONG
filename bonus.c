@@ -6,11 +6,11 @@
 /*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:41:50 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/11/25 16:58:13 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:26:55 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	display_movements(t_game *game)
 {

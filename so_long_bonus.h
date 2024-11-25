@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkeirouz <kkeirouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:09:47 by kkeirouz          #+#    #+#             */
-/*   Updated: 2024/11/25 19:39:50 by kkeirouz         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:39:36 by kkeirouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # define TILE_SIZE 64
 # define EXIT 'E'
@@ -104,5 +104,6 @@ int		check_walls_top_bottom(t_game *game);
 int		check_walls_middle(t_game *game);
 int		flood_fill(t_game *flood_game, int x, int y);
 int		flood_fill_master(t_game *game);
+void	display_movements(t_game *game);
 
 #endif
